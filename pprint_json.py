@@ -1,17 +1,20 @@
 # -*- coding: utf-8 -*-
 import json
-from pprint import pprint
+import os
+
 
 def load_data(filepath):
-    with open(filepath, 'r', encoding='utf-8') as data_file:
-        data_file = json.load(data_file, encoding='utf-8')
-    return data_file
+    if os.path.exists(filepath):
+        with open(filepath, 'r') as data_file:
+            data_file = json.load(data_file)
+            return data_file
 
 
 def pretty_print_json(data):
-    pprint(data)
+    print(json.dumps(data, indent=4, sort_keys=True, ensure_ascii=False))
+
 
 if __name__ == '__main__':
-    path = input()
+    path = input("Введите путь к файлу, который хотите вывести красиво: ")
     data = load_data(path)
     pretty_print_json(data)
