@@ -15,6 +15,6 @@ def pretty_print_json(data):
 
 
 if __name__ == '__main__':
-    path = input("Введите путь к файлу, который хотите вывести красиво: ")
-    data = load_data(path)
-    pretty_print_json(data)
+    pretty_printnig_json_file_path = input("Enter path to file you want to pretty print: ")
+    opened_json_file = load_data(pretty_printnig_json_file_path)
+    pretty_print_json(opened_json_file)
